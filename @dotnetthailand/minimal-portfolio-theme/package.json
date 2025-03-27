@@ -14,11 +14,13 @@
     "sync": "astro sync"
   },
   "devDependencies": {
-    "astro": "^5.4.3"
+    "astro": "^5.4.3",
+    "sass-embedded": "^1.86.0"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "astro-theme-provider": "^0.7.1",
+    "bootstrap": "^5.3.3",
     "typescript": "^5.8.2"
   }
 }

@@ -1,0 +1,83 @@
+:root {}
+
+@mixin setLinkSelectorStyle {
+
+  &,
+  &:hover,
+  &:link,
+  &:active,
+  &:visited {
+    @content;
+  }
+}
+
+.main-container {
+  display: grid;
+  grid: "header" 2rem "main" auto "sidebar" 2rem "footer" 2rem / 1fr;
+
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: .25rem;
+
+  // https://www.frontend.fyi/tutorials/finally-a-fix-for-100vh-on-mobile
+  min-height: 100vh;
+  min-height: 100dvh; //dvh will be override vh
+
+
+  @media screen and (min-width: 600px) {
+    grid: "header header" 2rem "main sidebar" auto "footer footer" 2rem / 2fr 1fr;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .footer {
+    grid-area: footer;
+
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .primary>.link,
+  .secondary>.link {
+    padding: 0.25rem;
+
+    @include setLinkSelectorStyle {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &:hover {
+      background-color: var(--bs-info-bg-subtle);
+      border-radius: .25rem;
+    }
+  }
+
+  .primary {}
+
+  .secondary {}
+}
+
+
+.post-item {
+  display: flex;
+
+  >* {
+    // https://www.youtube.com/watch?v=vQAvjof1oe4
+    flex: 1 1 100%;
+    text-align: left;
+  }
+}

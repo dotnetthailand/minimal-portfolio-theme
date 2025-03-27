@@ -1,17 +1,42 @@
 ---
-import config from 'minimal-portfolio-theme:config';
-import 'minimal-portfolio-theme:styles';
+import config from "minimal-portfolio-theme:config";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "minimal-portfolio-theme:styles";
+// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 ---
 
 <html lang="en">
   <head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <title>{config.title}</title>
+    <!-- <script is:inline src={bootstrap}></script> -->
   </head>
   <body>
-    <slot />
+    <div class="main-container">
+      <div class="header">
+        <div class="navbar">
+          <div class="primary">
+            <a class="link" href="/">Activities</a>
+            <a class="link" href="" class="hr">Project</a>
+            <a class="link" href="" class="hr">Profile</a>
+          </div>
+          <div class="secondary">
+            <a class="link" href="">GitHub</a>
+            <a class="link" href="">dark mode</a>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <slot />
+      </div>
+
+      <div class="sidebar">sidebar</div>
+      <div class="footer">footer Copyright</div>
+    </div>
   </body>
 </html>
+
+<style lang="scss"></style>

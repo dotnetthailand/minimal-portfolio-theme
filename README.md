@@ -13,6 +13,12 @@
 - [ ] How to contribute to the project
 - [ ] GitHub Actions
 - [ ] Changsets integration
+- [x] Layout with grid
+- [x] List on home page
+- [ ] Pagination
+- [ ] MDX
+- [ ] Toggle dark mode
+- [ ] font icons
 
 Content collections guide
 
