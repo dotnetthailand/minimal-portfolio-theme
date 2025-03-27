@@ -1,0 +1,51 @@
+---
+import { Layout } from "minimal-portfolio-theme:layouts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await getCollection("post");
+  console.log(posts);
+
+  const sortedPosts = posts.sort(
+    (a, b) => Date.parse(`${b.data.date}`) - Date.parse(`${a.data.date}`),
+  );
+
+  return paginate(sortedPosts, { pageSize: 2 });
+};
+
+interface Props {
+  page: Page<CollectionEntry<"post">>;
+}
+
+const page = Astro.props.page;
+---
+
+<Layout>
+  post index
+  {
+    page.data.map((post) => (
+      <a class="post-item" href={`/post/${post.slug}`}>
+        <div>{post.data.date}</div>
+        <div>{post.data.title}</div>
+        <div>{post.data.type}</div>
+        <div>{post.data.primaryContributionArea}</div>
+        <div>
+          {post.data.additionalContributionAreas?.map((a) => (
+            <div>{a}</div>
+          ))}
+        </div>
+      </a>
+    ))
+  }
+
+  <div>
+    <span>
+      {page.url.prev && <a href={page.url.prev}>previous</a>}
+    </span>
+    {page.currentPage}
+    <span>
+      {page.url.next && <a href={page.url.next}>next</a>}
+    </span>
+  </div>
+</Layout>

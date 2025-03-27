@@ -11,7 +11,7 @@ const postCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
-    date: z.string().optional(),
+    date: z.date(),
     type: z.string().optional(),
     primaryContributionArea: z.string().optional(),
     additionalContributionAreas: z.array(z.string()).optional(),

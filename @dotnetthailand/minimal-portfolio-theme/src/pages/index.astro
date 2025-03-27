@@ -4,15 +4,14 @@ import { Layout } from "minimal-portfolio-theme:layouts";
 import { Hero, Banner } from "minimal-portfolio-theme:components";
 import { houston } from "minimal-portfolio-theme:assets";
 import config from "minimal-portfolio-theme:config";
-import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("post");
 ---
 
+<!-- https://docs.astro.build/en/guides/routing/ --><!-- https://egghead.io/lessons/astro-implement-pagination-in-a-dynamic-astro-index-page-with-getstaticpaths-and-paginate -->
 <Layout>
   <Banner title="Aaron" />
-  {
-    allPosts.map((post) => (
+  <!-- {
+    page.data.map((post) => (
       <div class="post-item">
         <div>{post.data.date}</div>
         <div>{post.data.title}</div>
@@ -25,5 +24,5 @@ const allPosts = await getCollection("post");
         </div>
       </div>
     ))
-  }
+  } -->
 </Layout>
