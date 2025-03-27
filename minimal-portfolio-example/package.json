@@ -1,0 +1,15 @@
+{
+  "name": "minimal-portfolio-example",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.4.3",
+    "@dotnetthailand/minimal-portfolio-theme": "^0.0.1"
+  }
+}

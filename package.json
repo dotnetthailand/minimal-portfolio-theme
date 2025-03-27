@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [
+    "@dotnetthailand/*",
+    "minimal-portfolio-example"
+  ],
+  "scripts": {
+    "start": "yarn workspace minimal-portfolio-example run dev",
+    "changeset": "changeset",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.2",
+    "@changesets/cli": "^2.19.0"
+  }
+}
