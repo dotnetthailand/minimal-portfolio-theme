@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { Layout } from "minimal-portfolio-theme:layouts";
+import { Hero } from "minimal-portfolio-theme:components";
+import { houston } from "minimal-portfolio-theme:assets";
+import config from "minimal-portfolio-theme:config";
+
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => {
+    console.log("post.slug", post.slug);
+
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <div style="color: #fff">
+    <Content />
+  </div>
+</Layout>

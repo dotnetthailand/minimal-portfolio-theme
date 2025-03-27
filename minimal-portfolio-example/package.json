@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "astro": "^5.4.3",
-    "@dotnetthailand/minimal-portfolio-theme": "^0.0.1"
+    "@dotnetthailand/minimal-portfolio-theme": "*"
   }
 }

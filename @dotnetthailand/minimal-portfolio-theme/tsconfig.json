@@ -1,0 +1,12 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "../../minimal-portfolio-example/.astro/types.d.ts",
+    "**/*"
+  ],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "allowJs": true
+  }
+}

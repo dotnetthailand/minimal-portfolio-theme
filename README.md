@@ -13,3 +13,15 @@
 - [ ] How to contribute to the project
 - [ ] GitHub Actions
 - [ ] Changsets integration
+
+Content collections guide
+
+https://docs.astro.build/en/guides/content-collections/
+
+Not use legacy API
+https://docs.astro.build/en/guides/upgrade-to/v5/#legacy-v20-content-collections-api
+
+
+Create a content collection
+
+https://docs.astro.build/en/tutorial/6-islands/4/

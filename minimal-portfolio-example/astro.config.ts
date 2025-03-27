@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
-import MinimalTheme from '../@dotnetthailand/minimal-portfolio-theme';
+import MinimalPortforlioTheme from '../@dotnetthailand/minimal-portfolio-theme';
 
 export default defineConfig({
   integrations: [
-    MinimalTheme({
+    MinimalPortforlioTheme({
       config: {
-        title: "@dotnetthailand/minimal-portfolio-theme theme",
+        title: "minimal-portfolio-theme",
         description: "My awesome theme",
       },
       pages: {
