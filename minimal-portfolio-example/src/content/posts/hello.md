@@ -1,8 +1,10 @@
 ---
-title: helllo
+title: hello in posts
 tags:
   - a
   - b
 ---
 
-Hell world
+<h1>
+hello in posts
+</h1>

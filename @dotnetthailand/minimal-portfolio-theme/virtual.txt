@@ -1,0 +1,5 @@
+/// <reference path=".astro/types.d.ts"/>
+/// <reference path="../../minimal-portfolio-example/.astro/types.d.ts" />
+
+
+

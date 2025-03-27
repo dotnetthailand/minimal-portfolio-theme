@@ -1,16 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import { Layout } from "minimal-portfolio-theme:layouts";
-import { Hero } from "minimal-portfolio-theme:components";
-import { houston } from "minimal-portfolio-theme:assets";
-import config from "minimal-portfolio-theme:config";
-
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts = await getCollection("post");
   return posts.map((post) => {
-    console.log("post.slug", post.slug);
+    console.log("post.slug/id", post);
 
     return {
       params: { slug: post.slug },

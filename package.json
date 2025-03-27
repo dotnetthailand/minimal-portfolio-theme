@@ -11,6 +11,7 @@
     "preview": "yarn workspace minimal-portfolio-example run preview",
 
     "sync": "yarn workspace @dotnetthailand/minimal-portfolio-theme run sync",
+    "check": "yarn workspace @dotnetthailand/minimal-portfolio-theme run check",
     "changeset": "changeset",
     "release": "changeset publish"
 
