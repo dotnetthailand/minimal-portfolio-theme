@@ -2,7 +2,10 @@
 import config from "minimal-portfolio-theme:config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "minimal-portfolio-theme:styles";
-// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
+//import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
+
+import GitHubCalendarWrapper from "../components/react/GitHubCalendarWrapper";
+import ListGitHubProject from "../components/ListGitHubProject.astro";
 ---
 
 <html lang="en">
@@ -15,7 +18,7 @@ import "minimal-portfolio-theme:styles";
     <!-- <script is:inline src={bootstrap}></script> -->
   </head>
   <body>
-    <div class="main-container">
+    <div class="main-containerx">
       <div class="header">
         <div class="navbar">
           <div class="primary">
@@ -32,8 +35,10 @@ import "minimal-portfolio-theme:styles";
       <div class="main">
         <slot />
       </div>
-
-      <div class="sidebar">sidebar</div>
+      <div class="sidebar">
+        <GitHubCalendarWrapper client:only="react" />
+        <!-- <ListGitHubProject /> -->
+      </div>
       <div class="footer">footer Copyright</div>
     </div>
   </body>

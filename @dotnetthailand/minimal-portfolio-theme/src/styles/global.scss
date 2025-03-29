@@ -1,3 +1,5 @@
+// https://astro-theme-resume.vercel.app/
+
 :root {}
 
 @mixin setLinkSelectorStyle {
@@ -11,13 +13,15 @@
   }
 }
 
-.main-container {
+.main-containerx {
   display: grid;
-  grid: "header" 2rem "main" auto "sidebar" 2rem "footer" 2rem / 1fr;
-
+  grid: "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
   margin: 0 auto;
+  // border: 1px solid #ccc;
+  padding: .5rem;
   max-width: 1140px;
-  padding: .25rem;
+  gap: 0.5rem;
+
 
   // https://www.frontend.fyi/tutorials/finally-a-fix-for-100vh-on-mobile
   min-height: 100vh;
@@ -25,7 +29,7 @@
 
 
   @media screen and (min-width: 600px) {
-    grid: "header header" 2rem "main sidebar" auto "footer footer" 2rem / 2fr 1fr;
+    grid: "header header" 2rem "main sidebar" auto "footer footer" 2rem / 2fr minmax(375px, 1fr);
   }
 
   .header {
@@ -37,7 +41,15 @@
   }
 
   .sidebar {
+    // https://stackoverflow.com/a/43312314/1872200
+    // By default, a grid item cannot be smaller than the size of its content.
+    // Grid items have an initial size of min-width: auto and min-height: auto.
+    min-width: 0;
+
     grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer {
@@ -48,7 +60,6 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   gap: 0.5rem;
 
   .primary>.link,
@@ -80,4 +91,50 @@
     flex: 1 1 100%;
     text-align: left;
   }
+}
+
+.github-calendar-container {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.react-activity-calendar__footer {
+  flex-direction: column;
+  align-items: start;
+
+  >.react-activity-calendar__legend-colors {
+    order: -1;
+    margin-left: 0 !important;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: 0;
+  top: 200px;
+  z-index: 1;
+
+}
+
+.tooltip:hover {
+  cursor: pointer;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

@@ -5,16 +5,13 @@
     "minimal-portfolio-example"
   ],
   "scripts": {
-
     "dev": "yarn workspace minimal-portfolio-example run dev",
     "build": "yarn workspace minimal-portfolio-example run build",
     "preview": "yarn workspace minimal-portfolio-example run preview",
-
     "sync": "yarn workspace @dotnetthailand/minimal-portfolio-theme run sync",
     "check": "yarn workspace @dotnetthailand/minimal-portfolio-theme run check",
     "changeset": "changeset",
     "release": "changeset publish"
-
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.2",

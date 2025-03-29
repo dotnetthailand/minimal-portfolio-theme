@@ -4,5 +4,9 @@
     ".astro/types.d.ts",
     "../../minimal-portfolio-example/.astro/types.d.ts",
     "**/*"
-  ]
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

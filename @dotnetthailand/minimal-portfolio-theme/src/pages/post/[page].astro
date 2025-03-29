@@ -5,7 +5,6 @@ import type { GetStaticPaths, Page } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const posts = await getCollection("post");
-  console.log(posts);
 
   const sortedPosts = posts.sort(
     (a, b) => Date.parse(`${b.data.date}`) - Date.parse(`${a.data.date}`),

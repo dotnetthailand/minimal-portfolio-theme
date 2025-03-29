@@ -1,0 +1,29 @@
+---
+import { getLatestContributedRepos } from "../services/githubService";
+const repos = await getLatestContributedRepos("aaronamm");
+---
+
+<div class="repo-container">
+  {
+    repos.map((repo) => (
+      <div class="repo-item">
+        <a href={repo.html_url} target="_blank">
+          {repo.name}
+        </a>
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .repo-container {
+    padding-bottom: 10px;
+  }
+
+  .repo-item {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--colors-border);
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+</style>
