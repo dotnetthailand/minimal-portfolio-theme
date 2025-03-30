@@ -15,7 +15,7 @@ jobs:
   release:
     # Available images
     # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
-    run-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -34,7 +34,11 @@ jobs:
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
         with:
-          publish: yarn release
+          version: yarn run version
+          publish: yarn run release
+          # commit - The commit message to use. Default to Version Packages
+          # title - The pull request title. Default to Version Packages
+
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_ACCESS_TOKEN }} # Ensure to have this set up under Github secrets
           NPM_TOKEN: ${{ secrets.AUTOMATION_NPM_ACCESS_TOKEN }} # Ensure to have this set up under Github secrets
