@@ -1,9 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import { Layout } from "minimal-portfolio-theme:layouts";
 import { Hero, Banner, PostList } from "minimal-portfolio-theme:components";
-import { houston } from "minimal-portfolio-theme:assets";
-import config from "minimal-portfolio-theme:config";
 import FAIcon from "../components/FAIcon.astro";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { getCollection } from "astro:content";
@@ -11,7 +8,7 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("post");
 const sortedPosts = posts.sort(
   (a, b) => Date.parse(`${b.data.date}`) - Date.parse(`${a.data.date}`),
-);
+).slice(0, 10);
 ---
 
 <!-- https://docs.astro.build/en/guides/routing/ --><!-- https://egghead.io/lessons/astro-implement-pagination-in-a-dynamic-astro-index-page-with-getstaticpaths-and-paginate -->
@@ -26,7 +23,7 @@ const sortedPosts = posts.sort(
 <style lang="scss">
   .more-posts {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;

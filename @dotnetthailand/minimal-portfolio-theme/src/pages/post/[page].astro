@@ -23,13 +23,51 @@ const posts = page.data;
 
 <Layout>
   <PostList posts={posts} />
-  <div>
-    <span>
-      {page.url.prev && <a href={page.url.prev}>previous</a>}
-    </span>
-    {page.currentPage}
-    <span>
-      {page.url.next && <a href={page.url.next}>next</a>}
-    </span>
+
+  <div class="pagination-container">
+    {
+      page.url.prev && (
+        <a class="link" href={page.url.prev}>
+          Previous
+        </a>
+      )
+    }
+    <span class="current"> {page.currentPage} </span>
+    {
+      page.url.next && (
+        <a class="link" href={page.url.next}>
+          Next
+        </a>
+      )
+    }
   </div>
 </Layout>
+
+<style lang="scss">
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    * {
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      min-width: 2rem;
+      text-align: center;
+    }
+
+    > .current {
+      background-color: var(--bs-primary-bg-subtle);
+    }
+
+    > .link {
+      text-decoration: none;
+      color: var(--bs-body-color);
+    }
+
+    > .link:hover {
+      background-color: var(--bs-primary-bg-subtle);
+    }
+  }
+</style>

@@ -12,7 +12,7 @@
 - [ ] How to release a new version
 - [ ] How to contribute to the project
 - [ ] GitHub Actions
-- [ ] Changsets integration
+- [x] Changsets integration
 - [x] Layout with grid
 - [x] List on home page
 - [ ] Pagination
@@ -31,3 +31,8 @@ https://docs.astro.build/en/guides/upgrade-to/v5/#legacy-v20-content-collections
 Create a content collection
 
 https://docs.astro.build/en/tutorial/6-islands/4/
+
+## release with Changeset
+```sh
+changeset init
+```

@@ -1,0 +1,40 @@
+# https://github.com/changesets/action/issues/220
+# Contents (read/write): Covers fetch content of the repository, push commits and create releases
+# Pull Request (read/write): Covers create and write PRs
+
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 22.x
+
+jobs:
+  release:
+    # Available images
+    # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
+    run-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # This makes action fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: yarn
+
+      # https://github.com/changesets/action/releases
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@v1
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES_ACCESS_TOKEN }} # Ensure to have this set up under Github secrets
+          NPM_TOKEN: ${{ secrets.AUTOMATION_NPM_ACCESS_TOKEN }} # Ensure to have this set up under Github secrets
