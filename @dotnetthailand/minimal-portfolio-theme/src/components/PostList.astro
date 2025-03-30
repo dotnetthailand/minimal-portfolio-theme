@@ -10,18 +10,64 @@ interface Props {
 const posts = Astro.props.posts;
 ---
 
-{
-  posts.map((post) => (
-    <a class="post-item" href={`/post/${post.slug}`}>
-      <div>{post.data.date}</div>
-      <div>{post.data.title}</div>
-      <div>{post.data.type}</div>
-      <div>{post.data.primaryContributionArea}</div>
-      <div>
-        {post.data.additionalContributionAreas?.map((a) => (
-          <div>{a}</div>
-        ))}
-      </div>
-    </a>
-  ))
-}
+<div class="post-list-container">
+  <div class="post-item-header">
+    <div>Date</div>
+    <div title="Activity/Title">Title</div>
+    <div>Type</div>
+    <div title="Primary contributed area">Primary</div>
+    <div title="Additional contributed area">Additional</div>
+  </div>
+  {
+    posts.map((post) => (
+      <a class="post-item" href={`/post/${post.slug}`}>
+        <div>{post.data.date}</div>
+        <div>{post.data.title}</div>
+        <div>{post.data.type}</div>
+        <div>{post.data.primaryContributionArea}</div>
+        <div>
+          {post.data.additionalContributionAreas?.map((a) => (
+            <div>{a}</div>
+          ))}
+        </div>
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .post-list-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-item,
+  .post-item-header {
+    display: flex;
+    padding: 0.25rem;
+
+    > * {
+      // https://www.youtube.com/watch?v=vQAvjof1oe4
+      flex: 1 1 100%;
+      text-align: left;
+      gap: 0.25rem;
+      overflow-wrap: anywhere;
+      font-size: 0.75rem;
+    }
+  }
+
+  .post-item {
+    text-decoration: none;
+    color: var(--bs-body-color);
+
+    &:hover {
+      background-color: var(--bs-info-bg-subtle);
+    }
+  }
+
+  .post-item-header {
+    > * {
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+</style>

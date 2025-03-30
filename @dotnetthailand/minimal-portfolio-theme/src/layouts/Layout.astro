@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "minimal-portfolio-theme:styles";
 //import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 
-import ListGitHubProject from "../components/ListGitHubProject.astro";
+import RecentlyContributedProjects from "../components/RecentlyContributedProjects.astro";
 import "react-calendar-heatmap/dist/styles.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -53,7 +53,7 @@ const activities = response.data.contributions as Activity[];
 
       <div class="aside">
         <GitHubCalendarWrapper activities={activities} />
-        <ListGitHubProject/>
+        <RecentlyContributedProjects/>
       </div>
 
       <div class="main">

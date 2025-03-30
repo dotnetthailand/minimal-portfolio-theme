@@ -1,14 +1,14 @@
 ---
-title: hello 4
+title: React Design Patternsssssssssss with link
 tags:
-  - a
-  - b
+  - react
+  - js
 date: '2025-01-04'
 type: blog post
-primaryContributionArea: C#
+primaryContributionArea: React
 additionalContributionAreas:
-  - .NET
-  - Azure
+  - JavasScript
+  - TypeScript
 ---
 
 

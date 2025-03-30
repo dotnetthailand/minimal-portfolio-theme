@@ -32,10 +32,6 @@
   min-height: 100vh;
   min-height: 100dvh; //dvh will be override vh
 
-  @media screen and (min-width: 768px) {
-    grid: "navigation navigation" auto "header header" auto "main aside" 1fr "footer footer" auto / 2fr minmax(375px, 1fr);
-  }
-
   .navigation {
     grid-area: navigation;
   }
@@ -57,24 +53,20 @@
     grid-area: content;
   }
 
-
-
-  // .aside {
-  //   // https://stackoverflow.com/a/43312314/1872200
-  //   // By default, a grid item cannot be smaller than the size of its content.
-  //   // Grid items have an initial size of min-width: auto and min-height: auto.
-  //   min-width: 0;
-
-  //   grid-area: aside;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
-
   .footer {
     grid-area: footer;
 
   }
+
+  @media screen and (min-width: 768px) {
+    grid: "navigation navigation" auto "header header" auto "main aside" 1fr "footer footer" auto / 2fr minmax(375px, 1fr);
+
+    .header {
+      margin-bottom: 2rem;
+    }
+
+  }
+
 }
 
 .navbar {
@@ -102,15 +94,6 @@
 }
 
 
-.post-item {
-  display: flex;
-
-  >* {
-    // https://www.youtube.com/watch?v=vQAvjof1oe4
-    flex: 1 1 100%;
-    text-align: left;
-  }
-}
 
 .github-calendar-container {
   width: 100%;
