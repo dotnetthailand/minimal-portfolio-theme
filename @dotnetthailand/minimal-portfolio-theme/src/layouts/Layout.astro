@@ -4,13 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "minimal-portfolio-theme:styles";
 //import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 
+import ListGitHubProject from "../components/ListGitHubProject.astro";
+import "react-calendar-heatmap/dist/styles.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+import axios from "axios";
 import GitHubCalendarWrapper, {
   type Activity,
 } from "../components/react/GitHubCalendarWrapper";
-
-import ListGitHubProject from "../components/ListGitHubProject.astro";
-import "react-calendar-heatmap/dist/styles.css";
-import axios from "axios";
+import Banner from "../components/Banner.astro";
 
 const response = await axios.get(
   "https://github-contributions-api.jogruber.de/v4/aaronamm?y=last",
@@ -29,30 +31,36 @@ const activities = response.data.contributions as Activity[];
     <!-- <script is:inline src={bootstrap}></script> -->
   </head>
   <body>
-    <div class="main-containerx">
-      <div class="header">
+    <div class="main-container">
+      <div class="navigation">
         <div class="navbar">
           <div class="primary">
             <a class="link" href="/">Activities</a>
             <a class="link" href="" class="hr">Project</a>
             <a class="link" href="" class="hr">Profile</a>
           </div>
+
           <div class="secondary">
             <a class="link" href="">GitHub</a>
             <a class="link" href="">dark mode</a>
           </div>
         </div>
       </div>
+
+      <div class="header">
+        <Banner title="Aaron" />
+      </div>
+
+      <div class="aside">
+        <GitHubCalendarWrapper activities={activities} />
+        <ListGitHubProject/>
+      </div>
+
       <div class="main">
         <slot />
       </div>
-      <div class="sidebar">
-        <GitHubCalendarWrapper activities={activities} />
-        <!-- <ListGitHubProject /> -->
-      </div>
+
       <div class="footer">footer Copyright</div>
     </div>
   </body>
 </html>
-
-<style lang="scss"></style>

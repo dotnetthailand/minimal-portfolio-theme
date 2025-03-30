@@ -6,4 +6,47 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<h1>{title}</h1>
+<div class="banner-container">
+  <h1 class="head-text">{title}</h1>
+
+  <ul class="tag-line">
+    <li>Software engineer</li>
+    <li>Open source</li>
+    <li>Contributor</li>
+    <li>Content creator</li>
+    <li>Blogger</li>
+    <li>Youtuber</li>
+    <li>Call center</li>
+  </ul>
+</div>
+
+<style lang="scss">
+  .banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .head-text {
+    text-align: center;
+  }
+
+  .tag-line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+    > * {
+      text-wrap: nowrap;
+      background-color: var(--bs-primary-bg-subtle);
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+    }
+  }
+</style>

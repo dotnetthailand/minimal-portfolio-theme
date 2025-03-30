@@ -1,0 +1,27 @@
+---
+import { Layout } from "minimal-portfolio-theme:layouts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+
+interface Props {
+  posts: CollectionEntry<"post">[];
+}
+
+const posts = Astro.props.posts;
+---
+
+{
+  posts.map((post) => (
+    <a class="post-item" href={`/post/${post.slug}`}>
+      <div>{post.data.date}</div>
+      <div>{post.data.title}</div>
+      <div>{post.data.type}</div>
+      <div>{post.data.primaryContributionArea}</div>
+      <div>
+        {post.data.additionalContributionAreas?.map((a) => (
+          <div>{a}</div>
+        ))}
+      </div>
+    </a>
+  ))
+}

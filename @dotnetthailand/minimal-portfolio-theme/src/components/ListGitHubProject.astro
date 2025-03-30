@@ -4,26 +4,52 @@ const repos = await getLatestContributedRepos("aaronamm");
 ---
 
 <div class="repo-container">
-  {
-    repos.map((repo) => (
-      <div class="repo-item">
-        <a href={repo.html_url} target="_blank">
-          {repo.name}
-        </a>
-      </div>
-    ))
-  }
+  <h2 class="title">Recent Contribution Open Source Projects</h2>
+
+  <ul class="repo-list">
+    {
+      repos.map((repo) => (
+        <li class="item">
+          <a class="link" href={repo.html_url} target="_blank">
+            {repo.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
 
 <style lang="scss">
   .repo-container {
+    margin-top: 2rem;
     padding-bottom: 10px;
+
+    > .title {
+      font-size: 0.75rem;
+    }
   }
 
-  .repo-item {
-    padding-bottom: 5px;
+  .repo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     border-bottom: 1px solid var(--colors-border);
     margin-bottom: 10px;
     font-size: 1rem;
+
+    .item {
+      margin: 0.25rem 0;
+    }
+
+    .link {
+      text-decoration: none;
+      padding: 0.25rem;
+      display: block;
+    }
+
+    .link:hover {
+      background-color: var(--bs-primary-bg-subtle);
+      border-radius: 0.25rem;
+    }
   }
 </style>

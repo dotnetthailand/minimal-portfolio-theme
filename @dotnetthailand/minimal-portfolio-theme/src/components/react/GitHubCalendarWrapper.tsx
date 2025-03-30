@@ -19,7 +19,6 @@ type Props = {
   activities: Activity[];
 }
 
-
 const activitiesDurationInMonth = 6;
 const endDate = new Date();
 const startDate = subMonths(endDate, activitiesDurationInMonth);

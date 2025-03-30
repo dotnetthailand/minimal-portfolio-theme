@@ -2,6 +2,9 @@
 
 :root {}
 
+// colors
+// https://getbootstrap.com/docs/5.3/customize/color/#colors
+
 @mixin setLinkSelectorStyle {
 
   &,
@@ -13,9 +16,11 @@
   }
 }
 
-.main-containerx {
+.main-container {
   display: grid;
-  grid: "header" auto "main" 1fr "sidebar" auto "footer" auto / 1fr;
+  // mobile first
+  grid: "navigation" auto "header" auto "aside" auto "content" 1fr "footer" auto / 1fr;
+
   margin: 0 auto;
   // border: 1px solid #ccc;
   padding: .5rem;
@@ -27,30 +32,44 @@
   min-height: 100vh;
   min-height: 100dvh; //dvh will be override vh
 
+  @media screen and (min-width: 768px) {
+    grid: "navigation navigation" auto "header header" auto "main aside" 1fr "footer footer" auto / 2fr minmax(375px, 1fr);
+  }
 
-  @media screen and (min-width: 600px) {
-    grid: "header header" 2rem "main sidebar" auto "footer footer" 2rem / 2fr minmax(375px, 1fr);
+  .navigation {
+    grid-area: navigation;
   }
 
   .header {
     grid-area: header;
   }
 
-  .main {
-    grid-area: main;
-  }
+  .aside {
+    grid-area: aside;
 
-  .sidebar {
     // https://stackoverflow.com/a/43312314/1872200
     // By default, a grid item cannot be smaller than the size of its content.
     // Grid items have an initial size of min-width: auto and min-height: auto.
     min-width: 0;
-
-    grid-area: sidebar;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
+
+  .content {
+    grid-area: content;
+  }
+
+
+
+  // .aside {
+  //   // https://stackoverflow.com/a/43312314/1872200
+  //   // By default, a grid item cannot be smaller than the size of its content.
+  //   // Grid items have an initial size of min-width: auto and min-height: auto.
+  //   min-width: 0;
+
+  //   grid-area: aside;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
 
   .footer {
     grid-area: footer;
@@ -179,15 +198,19 @@
 .react-calendar-heatmap .color-github-0 {
   fill: #eeeeee;
 }
+
 .react-calendar-heatmap .color-github-1 {
   fill: #d6e685;
 }
+
 .react-calendar-heatmap .color-github-2 {
   fill: #8cc665;
 }
+
 .react-calendar-heatmap .color-github-3 {
   fill: #44a340;
 }
+
 .react-calendar-heatmap .color-github-4 {
   fill: #1e6823;
 }

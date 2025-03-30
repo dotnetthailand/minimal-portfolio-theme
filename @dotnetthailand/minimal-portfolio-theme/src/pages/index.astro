@@ -1,43 +1,22 @@
 ---
 import { Image } from "astro:assets";
 import { Layout } from "minimal-portfolio-theme:layouts";
-import { Hero, Banner } from "minimal-portfolio-theme:components";
+import { Hero, Banner, PostList } from "minimal-portfolio-theme:components";
 import { houston } from "minimal-portfolio-theme:assets";
 import config from "minimal-portfolio-theme:config";
+import FAIcon from "../components/FAIcon.astro";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { getCollection } from "astro:content";
 
+const posts = await getCollection("post");
+const sortedPosts = posts.sort(
+  (a, b) => Date.parse(`${b.data.date}`) - Date.parse(`${a.data.date}`),
+);
 ---
 
 <!-- https://docs.astro.build/en/guides/routing/ --><!-- https://egghead.io/lessons/astro-implement-pagination-in-a-dynamic-astro-index-page-with-getstaticpaths-and-paginate -->
 <Layout>
-  <Banner title="Aaron" />
-  <!-- {
-    page.data.map((post) => (
-      <div class="post-item">
-        <div>{post.data.date}</div>
-        <div>{post.data.title}</div>
-        <div>{post.data.type}</div>
-        <div>{post.data.primaryContributionArea}</div>
-        <div>
-          {post.data.additionalContributionAreas?.map((a) => (
-            <div>{a}</div>
-          ))}
-        </div>
-      </div>
-    ))
-  } -->
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur impedit
-voluptate soluta magni enim cupiditate debitis ipsam blanditiis dolores autem,
- veniam asperiores reiciendis a eveniet placeat necessitatibus, non atque vitae?
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur impedit
-voluptate soluta magni enim cupiditate debitis ipsam blanditiis dolores autem,
- veniam asperiores reiciendis a eveniet placeat necessitatibus, non atque vitae?
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur impedit
-voluptate soluta magni enim cupiditate debitis ipsam blanditiis dolores autem,
- veniam asperiores reiciendis a eveniet placeat necessitatibus, non atque vitae?
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur impedit
-voluptate soluta magni enim cupiditate debitis ipsam blanditiis dolores autem,
- veniam asperiores reiciendis a eveniet placeat necessitatibus, non atque vitae?
-
+  <PostList posts={sortedPosts} />
+  <a href="/post/1">more posts...</a>
+  <FAIcon icon={faUser} class={["a", "b"]} />
 </Layout>

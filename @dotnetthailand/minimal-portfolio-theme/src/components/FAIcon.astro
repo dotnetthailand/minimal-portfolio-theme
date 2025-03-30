@@ -1,0 +1,16 @@
+---
+import { icon, type IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+interface Props {
+  icon: IconDefinition;
+  class?: string[];
+}
+
+const iconHtml = icon(Astro.props.icon, {
+  classes: Astro.props.class,
+  //Array.from(new Set(Astro.props.class?.split(" "))),
+}).html;
+---
+
+<!-- https://docs.astro.build/en/reference/astro-syntax/#fragments -->
+<Fragment set:html={iconHtml} />
