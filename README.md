@@ -36,3 +36,12 @@ https://docs.astro.build/en/tutorial/6-islands/4/
 ```sh
 changeset init
 ```
+
+## Change some Changesets configuration
+```json
+{
+  "access": "public",
+}
+```
+## To not publish some projects
+- In `pacakge.json`, set `private: true`.

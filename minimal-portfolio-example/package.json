@@ -1,5 +1,7 @@
 {
   "name": "minimal-portfolio-example",
+  "private": true,
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
