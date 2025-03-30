@@ -4,8 +4,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "minimal-portfolio-theme:styles";
 //import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js?url";
 
-import GitHubCalendarWrapper from "../components/react/GitHubCalendarWrapper";
+import GitHubCalendarWrapper, {
+  type Activity,
+} from "../components/react/GitHubCalendarWrapper";
+
 import ListGitHubProject from "../components/ListGitHubProject.astro";
+import "react-calendar-heatmap/dist/styles.css";
+import axios from "axios";
+
+const response = await axios.get(
+  "https://github-contributions-api.jogruber.de/v4/aaronamm?y=last",
+);
+
+const activities = response.data.contributions as Activity[];
 ---
 
 <html lang="en">
@@ -36,7 +47,7 @@ import ListGitHubProject from "../components/ListGitHubProject.astro";
         <slot />
       </div>
       <div class="sidebar">
-        <GitHubCalendarWrapper client:only="react" />
+        <GitHubCalendarWrapper activities={activities} />
         <!-- <ListGitHubProject /> -->
       </div>
       <div class="footer">footer Copyright</div>
