@@ -1,6 +1,6 @@
 {
   "name": "@dotnetthailand/minimal-portfolio-theme",
-  "pivate": true,
+  "pivate": false,
   "version": "0.0.0",
   "description": "My awesome Astro theme created using `astro-theme-provider`!",
   "license": "MIT",

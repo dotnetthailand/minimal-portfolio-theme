@@ -5,8 +5,8 @@ export default defineConfig({
   integrations: [
     MinimalPortforlioTheme({
       config: {
-        title: "minimal-portfolio-theme",
-        description: "My awesome theme",
+        title: "minimal portfolio theme",
+        description: "minimal & awesome theme",
       },
       pages: {
 
